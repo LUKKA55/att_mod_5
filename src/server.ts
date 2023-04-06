@@ -4,5 +4,5 @@ import routers from './routers';
 const server = express();
 server.use(express.json());
 server.use(routers);
-
-server.listen(9090, () => console.log('server rodando na porta 9090'));
+const port = process.env.PORT;
+server.listen(port, () => console.log(`server rodando`));
