@@ -12,6 +12,8 @@ import update_Recado from './controlers/Recados/updateRecado';
 import validationBodyMiddleware from './middleware/validationBodyMiddleware';
 import validationCreate_UpdateUserMiddleware from './middleware/validationCreate_UpdateUserMiddleware';
 import validationIdUser_RecadoMiddleware from './middleware/validationIdUser_RecadoMiddleware';
+import loginUser from './controlers/Users/loginUser';
+import validationLoginMiddleware from './middleware/validationLoginMiddleware';
 
 const routers = Router();
 
@@ -20,6 +22,12 @@ routers.post(
 	validationBodyMiddleware,
 	validationCreate_UpdateUserMiddleware,
 	createUser
+);
+routers.post(
+	'/login',
+	validationBodyMiddleware,
+	validationLoginMiddleware,
+	loginUser
 );
 routers.get('/users', getAllUser);
 routers.get('/users/:id', validationIdUser_RecadoMiddleware, getUserById);

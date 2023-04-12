@@ -15,6 +15,18 @@ export const imprementar_User_banco = (
 	return novo_user;
 };
 
+export const login_User_Banco = (
+	nick: string,
+	email: string,
+	senha: string
+) => {
+	const confirm_User = banco_dados_users.find(
+		(ele) =>
+			ele.getNick === nick && ele.getEmail === email && ele.getSenha === senha
+	);
+	return confirm_User;
+};
+
 export const procurar_User_Id = (id: string) => {
 	const user_id = banco_dados_users.findIndex((ele) => ele.getId === id);
 	return user_id;
