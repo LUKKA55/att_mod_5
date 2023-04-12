@@ -6,7 +6,7 @@ const validationLoginMiddleware = (
 	res: Response,
 	next: NextFunction
 ) => {
-	const [nick, email, senha] = req.body;
+	const { nick, email, senha } = req.body;
 	const valid = banco_dados_users.find(
 		(ele) =>
 			ele.getNick === nick && ele.getEmail === email && ele.getSenha === senha
