@@ -6,7 +6,7 @@ const validationBodyMiddleware = (
 	next: NextFunction
 ) => {
 	if (Object.values(req.body).some((ele) => !ele)) {
-		return res.status(418).send({ message: 'Informe todos os campos' });
+		return res.status(418).json({ message: 'Informe todos os campos' });
 	}
 	next();
 };

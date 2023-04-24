@@ -14,6 +14,9 @@ import validationCreate_UpdateUserMiddleware from './middleware/validationCreate
 import validationIdUser_RecadoMiddleware from './middleware/validationIdUser_RecadoMiddleware';
 import loginUser from './controlers/Users/loginUser';
 import validationLoginMiddleware from './middleware/validationLoginMiddleware';
+import arquivaRecado from './controlers/Recados/arquivaRecado';
+import getAllRecadosArquivados from './controlers/Recados/getAllRecadosArquivados';
+import getRecadosFiltro from './controlers/Recados/getRecadosFiltro';
 
 const routers = Router();
 
@@ -49,6 +52,21 @@ routers.get(
 	'/users/:id/recados',
 	validationIdUser_RecadoMiddleware,
 	getAllRecados
+);
+routers.get(
+	'/users/:id/recados/filtro',
+	validationIdUser_RecadoMiddleware,
+	getRecadosFiltro
+);
+routers.get(
+	'/users/:id/recadosArquivados',
+	validationIdUser_RecadoMiddleware,
+	getAllRecadosArquivados
+);
+routers.get(
+	'/users/:id/recados/:idRecado/arquivar',
+	validationIdUser_RecadoMiddleware,
+	arquivaRecado
 );
 routers.get(
 	'/users/:id/recados/:idRecado',
